@@ -22,9 +22,9 @@ public class EmailService {
 	public EmailModel sendEmail(EmailModel emailModel) {
 		emailModel.setSendDateEmail(LocalDateTime.now());
 
-		try{
+		try {
 			SimpleMailMessage message = new SimpleMailMessage();
-			message.setFrom(emailModel.getEmaiFrom());
+			message.setFrom(emailModel.getEmailFrom());
 			message.setTo(emailModel.getEmailTo());
 			message.setSubject(emailModel.getSubject());
 			message.setText(emailModel.getText());
@@ -32,8 +32,8 @@ public class EmailService {
 			emailModel.setStatusEmail(StatusEmail.SENT);
 		} catch (MailException e) {
 			emailModel.setStatusEmail(StatusEmail.ERROR);
-		} finally {
-			return emailRepository.save(emailModel);
 		}
+
+		return emailRepository.save(emailModel);
 	}
 }

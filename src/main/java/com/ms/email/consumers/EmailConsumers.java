@@ -11,10 +11,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class EmailConsumers {
-
 	@Autowired
 	EmailService emailService;
-
 	@RabbitListener(queues = "${spring.rabbitmq.queue}")
 	public void listen(@Payload EmailDto emailDto) {
 		EmailModel emailModel = new EmailModel();

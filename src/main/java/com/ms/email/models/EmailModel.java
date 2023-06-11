@@ -24,7 +24,7 @@ public class EmailModel {
 
 	private String ownerRef;
 
-	private String emaiFrom;
+	private String emailFrom;
 
 	private String emailTo;
 
